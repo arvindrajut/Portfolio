@@ -25,18 +25,15 @@ export const FloatingNav = ({
   const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+      // Fallback value for `getPrevious()`
+      const previous = scrollYProgress.getPrevious() ?? 0;
+      let direction = current - previous;
 
       if (scrollYProgress.get() < 0.05) {
         setVisible(false);
       } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+        setVisible(direction < 0);
       }
     }
   });
@@ -45,31 +42,41 @@ export const FloatingNav = ({
     <AnimatePresence mode="wait">
       <motion.div
         initial={{
-          opacity: 1,
+          opacity: 0,
           y: -100,
         }}
         animate={{
           y: visible ? 0 : -100,
           opacity: visible ? 1 : 0,
+          scale: visible ? 1 : 0.9,
         }}
+        exit={{ opacity: 0 }}
         transition={{
-          duration: 0.2,
+          duration: 0.4,
+          ease: [0.25, 0.8, 0.25, 1],
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-10 py-5 items-center justify-center space-x-4 border-white/[0.2] bg-black-100",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border rounded-full shadow-[0px_10px_20px_rgba(0,0,0,0.25),0px_5px_10px_rgba(0,0,0,0.1)] z-[5000] px-6 py-3 items-center justify-center space-x-6 border-white/[0.2] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
+        {navItems.map((navItem, idx) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "relative flex items-center space-x-2 text-white hover:text-black transition-all duration-300"
             )}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="text-sm !cursor-pointer">{navItem.name}</span>
+            <motion.span
+              whileHover={{ scale: 1.2 }}
+              className="block sm:hidden text-xl"
+            >
+              {navItem.icon}
+            </motion.span>
+            <span className="text-sm font-medium hover:underline">
+              {navItem.name}
+            </span>
           </Link>
         ))}
       </motion.div>

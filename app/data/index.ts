@@ -48,7 +48,7 @@ export const projects = [
       "Enhanced user engagement and interaction by implementing a feature allowing users to log in, describe their role and experience, and answer interview questions via video, which are then converted to text on the AI mock interview platform.",
       "Improved feedback accuracy for users by integrating Gemini AI to analyze text responses and provide feedback based on the answers given.",
     ],
-    img: "chat_app.png", //add your project image
+    img: "prepai.png", //add your project image
 
     //add technologies images used in your project
 
@@ -60,8 +60,8 @@ export const projects = [
       "/nodejs.svg",
       "/mongodb.svg",
     ],
-    link: "", //add the publicly deployed link of your project
-    github_link: "", //add the github repository link
+    link: "https://prepai-interview.vercel.app", //add the publicly deployed link of your project
+    github_link: "https://github.com/arvindrajut/AI-Interview-mocker-main/tree/main", //add the github repository link
   },
   {
     id: 2,
@@ -71,7 +71,7 @@ export const projects = [
       "Improved security and scalability of data management by configuring secure user authentication and cloud storage with AWS S3, using Neon database and Drizzle ORM, and integrating REST APIs for seamless back-end communication.",
       "Boosted document retrieval efficiency by enhancing document retrieval and interaction capabilities using the Retrieval Augmented Generation (RAG) framework and Pinecone database.",
     ],
-    img: "/fypms1.png",
+    img: "devdocer.png",
     iconLists: [
       "/react.svg",
       "/nodejs.svg",
@@ -79,7 +79,7 @@ export const projects = [
       "/aws_white.svg",
       "/stripe.png",
     ],
-    link: "",
+    link: "https://devdocer.vercel.app/",
     github_link: "",
   },
   {
@@ -90,9 +90,9 @@ export const projects = [
       "Improved user engagement and transaction efficiency by contributing significantly to user registration, token transactions (buy/sell), and the dividend distribution system.",
       "Enabled decentralized governance by designing and implementing a sophisticated voting mechanism, allowing investors to exert governance rights and make decisions regarding the fund's cryptocurrency composition.",
     ],
-    img: "/edu.png",
+    img: "chainfund.png",
     iconLists: ["/solidity_white.svg", "ethereum.svg", "/javascript.svg"],
-    link: "",
+    link: "https://chain-fund-pn1d.vercel.app",
     github_link: "",
   },
 ];
@@ -137,13 +137,13 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
-    link: "https://github.com/", //add your github link here
+    link: "https://github.com/arvindrajut/", //add your github link here
   },
-  {
-    id: 2,
-    img: "/twit.svg",
-    link: "https://twitter.com/", //add your twitter link here
-  },
+  // {
+  //   id: 2,
+  //   img: "/twit.svg",
+  //   link: "https://twitter.com/", //add your twitter link here
+  // },
   {
     id: 3,
     img: "/link.svg",

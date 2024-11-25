@@ -44,7 +44,7 @@ const Experience = () => {
                 >
                   {card.title}
                 </h1>
-                <ul className="text-start text-white-100 mt-3 font-semibold list-disc pl-5 mt-2">
+                <ul className="text-start text-white-100 font-semibold list-disc pl-5 mt-2">
                   {card.desc.map((point, index) => (
                     <li key={index} className="mt-4">
                       {point}
