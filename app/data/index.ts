@@ -48,7 +48,7 @@ export const projects = [
       "Enhanced user engagement and interaction by implementing a feature allowing users to log in, describe their role and experience, and answer interview questions via video, which are then converted to text on the AI mock interview platform.",
       "Improved feedback accuracy for users by integrating Gemini AI to analyze text responses and provide feedback based on the answers given.",
     ],
-    img: "prepai.png", //add your project image
+    img: "Prepai.png", //add your project image
 
     //add technologies images used in your project
 
