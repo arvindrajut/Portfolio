@@ -90,7 +90,7 @@ export const projects = [
 export const workExperience = [
   {
     id: 1,
-    title: "Volunteer Software Engineer @ RND4IMPACT INC. [Remote] Sep 2024 - Mar 2025",
+    title: "Software Engineer @ RND4IMPACT INC. Sep 2024 - Mar 2025",
     desc: [
       "Integrated Plaid Transactions API to fetch and sync financial data at ~200ms response time.",
       "Used node-cron to batch background job scheduling and reduce server load.",
@@ -102,7 +102,7 @@ export const workExperience = [
   },
   {
     id: 2,
-    title: "Software Engineer @ Jio Platforms Limited [On-site] Jun 2021 - Dec 2022",
+    title: "Software Engineer @ Jio Platforms Limited  Jun 2021 - Dec 2022",
     desc: [
       "Built RESTful APIs using Express.js with Swagger documentation and error handling.",
       "Designed React-based UIs and database ER diagrams for scalable web architecture.",
