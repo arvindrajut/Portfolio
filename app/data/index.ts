@@ -4,15 +4,10 @@ export const navItems = [
   { name: "Contact", link: "#contact" },
 ];
 
-export const emailAddress = "tarvindraju@gmail.com"; //add your email address
-
-//this is your about me string on the first section of the screen
+export const emailAddress = "tarvindraju@gmail.com";
 
 export const aboutMe =
-  '"Software Engineer with practical experience in developing and streamlining enterprise solutions. Expertise in enhancing procurement and deployment processes through RESTful APIs and CI/CD pipelines. Proficient in JavaScript, TypeScript, and managin databases like MongoDB and MySQL. Aim to leverage skills in DevOps and large-scale system development for impactful contributions to agile enterprise environments."';
-
-/////////////////////////////////////////  skills /////////////////////////////////////////////////////////
-//these skills array should not exceed 8 elements otherwise the alignment of the grid element would mess up
+  "Software Engineer with over 2 years of experience delivering dynamic solutions, including RESTful APIs and AI-driven platforms in fast-paced environments. Skilled in JavaScript, TypeScript, React, Next.js, and Node.js, with experience in scalable cloud systems, CI/CD pipelines, and full-stack development.";
 
 export const programmingLanguagesAndFrameworks = [
   "JavaScript",
@@ -36,22 +31,16 @@ export const devOpsAndTools = [
   "Drizzle ORM",
 ];
 
-/////////////////////////////////////////  skills /////////////////////////////////////////////////////////
-
-////////////////////////////////////////  projects ///////////////////////////////////////////////////
 export const projects = [
   {
     id: 1,
-    title: "PrepAI - AI Mock Interview App", //add your project title
+    title: "PrepAI - AI Mock Interview App",
     des: [
-      "Delivered a robust AI-driven platform by developing the application using Next.js, React, and Gemini AI for a full-stack development project for AI-powered mock interviews.",
-      "Enhanced user engagement and interaction by implementing a feature allowing users to log in, describe their role and experience, and answer interview questions via video, which are then converted to text on the AI mock interview platform.",
-      "Improved feedback accuracy for users by integrating Gemini AI to analyze text responses and provide feedback based on the answers given.",
+      "Built a full-stack platform using React, Next.js, Node.js, and Gemini AI to simulate mock interviews with real-time video input and AI-generated feedback.",
+      "Implemented authentication, session tracking, and performance analysis for personalized user feedback.",
+      "Deployed using Vercel with persistent storage integration and Gemini API for intelligent response evaluation.",
     ],
-    img: "Prepai.png", //add your project image
-
-    //add technologies images used in your project
-
+    img: "Prepai.png",
     iconLists: [
       "/react.svg",
       "/next.svg",
@@ -60,16 +49,17 @@ export const projects = [
       "/nodejs.svg",
       "/mongodb.svg",
     ],
-    link: "https://prepai-interview.vercel.app", //add the publicly deployed link of your project
-    github_link: "https://github.com/arvindrajut/AI-Interview-mocker-main/tree/main", //add the github repository link
+    link: "https://prepai-interview.vercel.app",
+    github_link:
+      "https://github.com/arvindrajut/AI-Interview-mocker-main/tree/main",
   },
   {
     id: 2,
     title: "DevDocer: AI PDF Document Reader",
     des: [
-      "Enhanced user experience and document interaction capabilities by implementing real-time chat and advanced search using text vector embedding with React and Node, incorporating Stripe for payment processing and ensuring responsive HTML/DOM",
-      "Improved security and scalability of data management by configuring secure user authentication and cloud storage with AWS S3, using Neon database and Drizzle ORM, and integrating REST APIs for seamless back-end communication.",
-      "Boosted document retrieval efficiency by enhancing document retrieval and interaction capabilities using the Retrieval Augmented Generation (RAG) framework and Pinecone database.",
+      "Implemented real-time chat and advanced search using vector embeddings with React and Node.js.",
+      "Secured authentication and payment processing with AWS S3 and Stripe integration.",
+      "Boosted document retrieval efficiency using RAG framework, Pinecone, and Neon Database with Drizzle ORM.",
     ],
     img: "devdocer.png",
     iconLists: [
@@ -84,11 +74,11 @@ export const projects = [
   },
   {
     id: 3,
-    title: "ChainFund App - Decentralized finance (DeFi)",
+    title: "ChainFund DApp - Decentralized Finance (DeFi)",
     des: [
-      "Enhanced platform's functionality by focusing on the application of Ethereum's ERC20, ERC721, and ERC1155 token standards to represent diversified cryptocurrency assets.",
-      "Improved user engagement and transaction efficiency by contributing significantly to user registration, token transactions (buy/sell), and the dividend distribution system.",
-      "Enabled decentralized governance by designing and implementing a sophisticated voting mechanism, allowing investors to exert governance rights and make decisions regarding the fund's cryptocurrency composition.",
+      "Developed Ethereum-based token standards (ERC20, ERC721, ERC1155) with Solidity and smart contracts.",
+      "Enhanced transaction throughput and user features like dividends, asset-backed tokens, and governance.",
+      "Implemented decentralized voting mechanisms and integrated portfolio management features.",
     ],
     img: "chainfund.png",
     iconLists: ["/solidity_white.svg", "ethereum.svg", "/javascript.svg"],
@@ -97,57 +87,44 @@ export const projects = [
   },
 ];
 
-////////////////////////////////////////  projects ///////////////////////////////////////////////////
-
-/////////////////////////////////////  work experience ////////////////////////////////////////////
-
 export const workExperience = [
   {
     id: 1,
-    title:
-      "Software Engineer @ Jio Platforms Limited  [On-site]                                    Jun 2021 - Dec 2022",
+    title: "Volunteer Software Engineer @ RND4IMPACT INC. [Remote] Sep 2024 - Mar 2025",
     desc: [
-      "Enhanced procurement process efficiency for SupplierFirst-Buyer First platform by developing RESTful microservices using Express.js and documenting them with Swagger.",
-      "Improved code reliability and reduced bugs through test-driven development, writing test cases using Chai and Mocha, with a strong focus on coding best practices.",
-      "Streamlined deployment processes by building and releasing CI/CD pipelines utilizing Azure DevOps, thereby supporting agile enterprise operations.",
-      "Contributed to full-stack development by collaborating on ER diagram creation, utilizing JavaScript for front-end enhancements and engaging in large-scale transaction processing systems.",
-      "Facilitated seamless data integration for SupplierFirst-Buyer First platform by employing algorithms, data structures, SQL, and MongoDB management.",
+      "Integrated Plaid Transactions API to fetch and sync financial data at ~200ms response time.",
+      "Used node-cron to batch background job scheduling and reduce server load.",
+      "Built financial dashboards in React.js with real-time summaries and filtering by categories.",
+      "Optimized state management for real-time financial insights and responsiveness.",
     ],
     className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    thumbnail: "/exp3.svg",
   },
-  // {
-  //   id: 2,
-  //   title: "Software Engineer @ -> Jio Platforms Limited [On-site]",
-  //   desc: [
-  //     "Enhanced procurement process efficiency for SupplierFirst-Buyer First platform by developing RESTful microservices using Express.js and documenting them with Swagger.",
-  //     "Improved code reliability and reduced bugs through test-driven development, writing test cases using Chai and Mocha, with a strong focus on coding best practices.",
-  //     "Streamlined deployment processes by building and releasing CI/CD pipelines utilizing Azure DevOps, thereby supporting agile enterprise operations.",
-  //     "Contributed to full-stack development by collaborating on ER diagram creation, utilizing JavaScript for front-end enhancements and engaging in large-scale transaction processing systems.",
-  //     "Facilitated seamless data integration for SupplierFirst-Buyer First platform by employing algorithms, data structures, SQL, and MongoDB management.",
-  //   ],
-  //   className: "md:col-span-2",
-  //   thumbnail: "/exp4.svg",
-  // },
+  {
+    id: 2,
+    title: "Software Engineer @ Jio Platforms Limited [On-site] Jun 2021 - Dec 2022",
+    desc: [
+      "Built RESTful APIs using Express.js with Swagger documentation and error handling.",
+      "Designed React-based UIs and database ER diagrams for scalable web architecture.",
+      "Applied TDD using Mocha, Chai, and Postman, achieving 90% code coverage.",
+      "Maintained CI/CD pipelines with Azure DevOps and real-time monitoring via Grafana.",
+      "Collaborated with SRE, backend, and frontend teams in Agile workflows.",
+    ],
+    className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
+  },
 ];
-
-/////////////////////////////////////  work experience ////////////////////////////////////////////
 
 export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
-    link: "https://github.com/arvindrajut/", //add your github link here
+    link: "https://github.com/arvindrajut/",
   },
-  // {
-  //   id: 2,
-  //   img: "/twit.svg",
-  //   link: "https://twitter.com/", //add your twitter link here
-  // },
   {
     id: 3,
     img: "/link.svg",
-    link: "https://www.linkedin.com/in/tadiarvindraju/", //add your linkedin link here
+    link: "https://www.linkedin.com/in/tadiarvindraju/",
   },
 ];
 
@@ -163,35 +140,4 @@ export const gridItems = [
     img: "",
     spareImg: "",
   },
-  // {
-  //   id: 2,
-  //   title: "I'm very flexible with time zone communications",
-  //   description: "",
-  //   className: "lg:col-span-2 md:col-span-3 lg:row-span-3",
-  //   imgClassName: "",
-  //   titleClassName: "justify-start",
-  //   img: "",
-  //   spareImg: "",
-  // },
-  // {
-  //   id: 5,
-  //   title: "Tech enthusiast with a passion for development.",
-  //   description: "",
-  //   className: "md:col-span-3 md:row-span-2 relative",
-  //   imgClassName:
-  //     "absolute w-60 right-3 top-14 sm:w-60 sm:right-10 sm:top-10  md:w-80 lg:w-60 md:top-36 md:right-8 lg:top-8 lg:right-16",
-  //   titleClassName: "flex md:justify-start lg:justify-center sm:justify-start",
-  //   img: "/encoded_code.png",
-  //   spareImg: "/grid.svg",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Do you want to start a project together?",
-  //   description: "",
-  //   className: "lg:col-span-3 md:col-span-3 md:row-span-1",
-  //   imgClassName: "",
-  //   titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-  //   img: "",
-  //   spareImg: "",
-  // },
 ];
