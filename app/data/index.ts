@@ -7,28 +7,48 @@ export const navItems = [
 export const emailAddress = "tarvindraju@gmail.com";
 
 export const aboutMe =
-  "Software Engineer with over 2 years of experience delivering dynamic solutions, including RESTful APIs and AI-driven platforms in fast-paced environments. Skilled in JavaScript, TypeScript, React, Next.js, and Node.js, with experience in scalable cloud systems, CI/CD pipelines, and full-stack development.";
+  "Full-stack Software Engineer with 2+ years of experience building fast, reliable web apps and APIs. I work across React/Next.js, Node.js/Express, and Java/Spring Boot, with hands-on ownership of data models (PostgreSQL, MySQL, MongoDB), cloud deployments (AWS S3, GCP Cloud Run, Azure DevOps), CI/CD, testing, and performance tuning.";
 
 export const programmingLanguagesAndFrameworks = [
   "JavaScript",
   "TypeScript",
   "Python",
+  "Java",
   "HTML/CSS",
-  "Next.js",
   "React.js",
+  "Next.js",
   "Node.js",
   "Express.js",
+  "Spring Boot",
+  "FastAPI",
 ];
 
-export const databaseManagement = ["MongoDB", "MySQL", "Redis"];
+export const databaseManagement = [
+  "PostgreSQL (Neon)",
+  "MySQL",
+  "MongoDB",
+  "Redis",
+];
 
 export const devOpsAndTools = [
-  "Azure DevOps",
-  "CI/CD Pipelines",
-  "Swagger",
+  "Docker",
   "AWS S3",
-  "Neon Database",
+  "GCP Cloud Run",
+  "Azure DevOps",
+  "Git & GitHub Actions",
+  "CI/CD Pipelines",
+  "Swagger/OpenAPI",
   "Drizzle ORM",
+  "Postman",
+  "Jest",
+  "React Testing Library",
+  "Mocha",
+  "Chai",
+  "Sentry",
+  "Grafana",
+  "Prometheus",
+  "APScheduler",
+  "node-cron",
 ];
 
 export const projects = [
@@ -36,9 +56,9 @@ export const projects = [
     id: 1,
     title: "PrepAI - AI Mock Interview App",
     des: [
-      "Built a full-stack platform using React, Next.js, Node.js, and Gemini AI to simulate mock interviews with real-time video input and AI-generated feedback.",
-      "Implemented authentication, session tracking, and performance analysis for personalized user feedback.",
-      "Deployed using Vercel with persistent storage integration and Gemini API for intelligent response evaluation.",
+      "Built a full-stack platform with React, Next.js, Node.js, and Gemini AI to simulate mock interviews with real-time feedback.",
+      "Implemented auth, session tracking, and performance analytics for personalized feedback.",
+      "Deployed on Vercel with persistent storage; integrated Gemini API for response evaluation.",
     ],
     img: "Prepai.png",
     iconLists: [
@@ -57,9 +77,9 @@ export const projects = [
     id: 2,
     title: "DevDocer: AI PDF Document Reader",
     des: [
-      "Implemented real-time chat and advanced search using vector embeddings with React and Node.js.",
-      "Secured authentication and payment processing with AWS S3 and Stripe integration.",
-      "Boosted document retrieval efficiency using RAG framework, Pinecone, and Neon Database with Drizzle ORM.",
+      "Implemented chat + semantic search with vector embeddings using React and Node.js.",
+      "Secured auth and payments; integrated AWS S3 for uploads and Stripe for billing.",
+      "Boosted retrieval with RAG using Pinecone and Neon (Postgres) via Drizzle ORM.",
     ],
     img: "devdocer.png",
     iconLists: [
@@ -76,9 +96,9 @@ export const projects = [
     id: 3,
     title: "ChainFund DApp - Decentralized Finance (DeFi)",
     des: [
-      "Developed Ethereum-based token standards (ERC20, ERC721, ERC1155) with Solidity and smart contracts.",
-      "Enhanced transaction throughput and user features like dividends, asset-backed tokens, and governance.",
-      "Implemented decentralized voting mechanisms and integrated portfolio management features.",
+      "Developed ERC20/721/1155 smart contracts in Solidity for tokenized assets.",
+      "Added features like dividends, asset backing, governance, and portfolio tools.",
+      "Shipped a responsive UI and on-chain interactions for end-to-end flows.",
     ],
     img: "chainfund.png",
     iconLists: ["/solidity_white.svg", "ethereum.svg", "/javascript.svg"],
@@ -89,26 +109,49 @@ export const projects = [
 
 export const workExperience = [
   {
-    id: 1,
-    title: "Software Engineer @ RND4IMPACT INC. Sep 2024 - Mar 2025",
+    id: 0,
+    title: "Software Engineer @ nCoders Technology Solutions LLC  •  Aug 2025 – Present",
     desc: [
-      "Integrated Plaid Transactions API to fetch and sync financial data at ~200ms response time.",
-      "Used node-cron to batch background job scheduling and reduce server load.",
-      "Built financial dashboards in React.js with real-time summaries and filtering by categories.",
-      "Optimized state management for real-time financial insights and responsiveness.",
+      "Built a Transactions Review dashboard in React + TypeScript with filters, pagination state, sticky summaries, and UAT-ready datasets.",
+      "Improved transaction categorization with dynamic forms, validation, and contextual feedback to reduce rule misconfigurations.",
+      "Applied list virtualization to smooth large-table scrolling and eliminate UI lag.",
+      "Integrated REST APIs; refined error handling and client-side validation for robust staging flows.",
+    ],
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
+  {
+    id: 1,
+    title: "Software Engineer @ Antra Inc  •  Mar 2025 – Aug 2025",
+    desc: [
+      "Delivered an advanced search UI in React backed by Java (Spring Boot) + MySQL; cut lookup times from ~1.8s to ~800ms.",
+      "Built secure document uploads using AWS S3 pre-signed URLs and checksum validation.",
+      "Implemented Auth0 role mapping and Java policy middleware for granular permissions with audit logging.",
+      "Optimized MySQL queries and Spring Boot endpoints for ~35% faster responses on high-traffic features.",
+    ],
+    className: "md:col-span-2",
+    thumbnail: "/exp2.svg",
+  },
+  {
+    id: 2,
+    title: "Software Engineer @ RND4IMPACT INC.  •  Sep 2024 – Mar 2025",
+    desc: [
+      "Integrated Plaid Transactions API with a Node.js backend to sync bank data (~5k+ monthly txns at ~200ms avg response).",
+      "Automated periodic syncs and alerts via node-cron, improving freshness and reducing manual ops.",
+      "Built React dashboards for filtering, categorization workflows, and real-time income/expense summaries.",
+      "Optimized API consumption and state handling for ~35% faster dashboard loads.",
     ],
     className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },
   {
-    id: 2,
-    title: "Software Engineer @ Jio Platforms Limited  Jun 2021 - Dec 2022",
+    id: 3,
+    title: "Software Engineer @ Jio Platforms Limited  •  Jun 2021 – Dec 2022",
     desc: [
-      "Built RESTful APIs using Express.js with Swagger documentation and error handling.",
-      "Designed React-based UIs and database ER diagrams for scalable web architecture.",
-      "Applied TDD using Mocha, Chai, and Postman, achieving 90% code coverage.",
-      "Maintained CI/CD pipelines with Azure DevOps and real-time monitoring via Grafana.",
-      "Collaborated with SRE, backend, and frontend teams in Agile workflows.",
+      "Designed RESTful APIs in Express.js with robust middleware, error handling, and Swagger docs.",
+      "Shipped full-stack features with React + Express; modeled data flows and DB schemas (ERDs) for scalability.",
+      "Applied TDD with Mocha/Chai/Postman to reach ~90% test coverage and reduce production issues.",
+      "Containerized and deployed via Azure DevOps CI/CD + Docker; monitored with Grafana and Prometheus.",
     ],
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
@@ -116,16 +159,8 @@ export const workExperience = [
 ];
 
 export const socialMedia = [
-  {
-    id: 1,
-    img: "/git.svg",
-    link: "https://github.com/arvindrajut/",
-  },
-  {
-    id: 3,
-    img: "/link.svg",
-    link: "https://www.linkedin.com/in/tadiarvindraju/",
-  },
+  { id: 1, img: "/git.svg", link: "https://github.com/arvindrajut/" },
+  { id: 3, img: "/link.svg", link: "https://www.linkedin.com/in/tadiarvindraju/" },
 ];
 
 export const gridItems = [
