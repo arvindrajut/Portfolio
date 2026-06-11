@@ -120,7 +120,7 @@ const Hero = () => {
             </p>
 
             <div className="flex gap-4 mt-2">
-              <a href="#projects">
+              <a href="#experience">
                 <MagicButton
                   title="See my work"
                   icon={<FaLocationArrow />}

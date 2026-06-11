@@ -93,7 +93,7 @@ const ProjectCard = ({
 
 const Experience = () => {
   return (
-    <div className="pt-32 pb-20 w-full">
+    <div id="experience" className="pt-32 pb-20 w-full">
       <h1 className="heading">
         My <span className="text-purple">work experience</span>
       </h1>
