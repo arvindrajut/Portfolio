@@ -103,7 +103,7 @@ export const projects = [
 export const workExperience = [
   {
     id: 0,
-    title: "AI Engineer @ TsQs Inc.  •  Nov 2025 – Present",
+    title: "AI Engineer Intern @ TsQs Inc.  •  Nov 2025 – Present",
     desc: [
       "Built an agentic email generation engine using Claude API with self-correcting MJML compilation loops, achieving 95%+ autonomous success rate across production workloads.",
       "Designed a production RAG pipeline from scratch (OpenAI embeddings → cascading semantic search → GPT-4 response generation) with citation constraints and hallucination prevention.",

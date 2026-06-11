@@ -25,20 +25,30 @@ const terminalLines = [
 
 const TerminalAnimation = () => {
   const [visibleLines, setVisibleLines] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
+    if (paused) {
+      const timeout = setTimeout(() => {
+        setVisibleLines(0);
+        setPaused(false);
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+
     const timer = setInterval(() => {
       setVisibleLines((prev) => {
         if (prev >= terminalLines.length) {
-          // Reset after a pause
-          setTimeout(() => setVisibleLines(0), 2000);
+          setPaused(true);
+          clearInterval(timer);
           return prev;
         }
         return prev + 1;
       });
     }, 200);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [paused]);
 
   return (
     <div className="terminal p-4 w-full max-w-md shadow-glass">
