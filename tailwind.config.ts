@@ -42,6 +42,18 @@ const config = {
           "100": "#E4ECFF",
         },
         purple: "#CBACF9",
+        cyan: {
+          DEFAULT: "#06b6d4",
+          400: "#22d3ee",
+          500: "#06b6d4",
+          900: "#164e63",
+        },
+        violet: {
+          DEFAULT: "#a855f7",
+          400: "#c084fc",
+          500: "#a855f7",
+          900: "#4c1d95",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -159,6 +171,12 @@ const config = {
         fifth: "moveInCircle 20s ease infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      boxShadow: {
+        'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.3), 0 0 60px rgba(6, 182, 212, 0.1)',
+        'glow-purple': '0 0 20px rgba(168, 85, 247, 0.3), 0 0 60px rgba(168, 85, 247, 0.1)',
+        'glow-blue': '0 0 20px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1)',
+        'glass': '0 8px 32px rgba(0, 0, 0, 0.37)',
       },
     },
   },

@@ -6,8 +6,8 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Arvind's Portfolio",
-  description: "Arvind Raju Tadi portfolio website",
+  title: "Arvind Raju Tadi | AI Engineer",
+  description: "AI Engineer building production LLM systems, RAG pipelines, and agentic AI workflows. Portfolio showcasing Marketyr, AccessGen, and more.",
 };
 
 export default function RootLayout({

@@ -1,60 +1,184 @@
+"use client";
 import { workExperience } from "../data";
-import { Button } from "@/app/components/ui/MovingBorders";
+import { motion } from "framer-motion";
+import { FaExternalLinkAlt } from "react-icons/fa";
+
+type FeaturedProject = {
+  name: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  img?: string;
+  gradient: string;
+  borderColor: string;
+  accentColor: string;
+  link: string;
+};
+
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: FeaturedProject;
+  index: number;
+}) => (
+  <motion.a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    initial={{ opacity: 0, x: 30 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.4, delay: 0.2 + index * 0.15 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -4, scale: 1.02 }}
+    className={`block min-w-[280px] flex-1 rounded-xl border ${project.borderColor} bg-gradient-to-br ${project.gradient} overflow-hidden backdrop-blur-sm cursor-pointer group/proj transition-all duration-300 hover:shadow-glass`}
+  >
+    {/* Project screenshot */}
+    {project.img && (
+      <div className="relative overflow-hidden">
+        <img
+          src={project.img}
+          alt={project.name}
+          className="w-full h-36 object-cover object-top transition-transform duration-500 group-hover/proj:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+          <h4
+            className={`text-lg font-bold text-white drop-shadow-lg`}
+          >
+            {project.name}
+          </h4>
+          <FaExternalLinkAlt className="w-3 h-3 text-white/50 group-hover/proj:text-white transition-colors" />
+        </div>
+      </div>
+    )}
+
+    <div className="p-5">
+      {/* Header — only show if no image */}
+      {!project.img && (
+        <div className="flex items-center justify-between mb-3">
+          <h4
+            className={`text-lg font-bold ${project.accentColor} group-hover/proj:text-white transition-colors`}
+          >
+            {project.name}
+          </h4>
+          <FaExternalLinkAlt className="w-3 h-3 text-white/30 group-hover/proj:text-white/70 transition-colors" />
+        </div>
+      )}
+
+      {/* Tagline */}
+      <p className="text-xs text-white/50 mb-3 font-medium uppercase tracking-wider">
+        {project.tagline}
+      </p>
+
+      {/* Description */}
+      <p className="text-sm text-white/70 leading-relaxed mb-4">
+        {project.description}
+      </p>
+
+      {/* Tech pills */}
+      <div className="flex flex-wrap gap-1.5">
+        {project.tech.map((t, i) => (
+          <span
+            key={i}
+            className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  </motion.a>
+);
 
 const Experience = () => {
-  // Check how many work experience items are available
-  const isSingleItem = workExperience.length === 1;
-
   return (
-    <div className="py-20 w-full">
+    <div className="pt-32 pb-20 w-full">
       <h1 className="heading">
         My <span className="text-purple">work experience</span>
       </h1>
 
-      <div
-        className={`w-full mt-12 grid gap-10 ${
-          isSingleItem
-            ? "grid-cols-1 justify-center"
-            : "grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
-        }`}
-      >
-        {workExperience.map((card) => (
-          <Button
-            key={card.id}
-            duration={Math.floor(Math.random() * 10000) + 10000}
-            borderRadius="1.75rem"
-            style={{
-              background: "rgb(4,7,29)",
-              backgroundColor:
-                "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-              borderRadius: `calc(1.75rem* 0.96)`,
-            }}
-            className="flex-1 text-black dark:text-white border-neutral-200 dark:border-slate-800"
-          >
-            <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
-              <img
-                src={card.thumbnail}
-                alt={card.thumbnail}
-                className="lg:w-32 md:w-20 w-16"
+      <div className="relative mt-16 max-w-4xl mx-auto">
+        {/* Timeline line */}
+        <div className="absolute left-4 lg:left-8 top-0 bottom-0 timeline-line" />
+
+        {/* Experience cards */}
+        <div className="flex flex-col gap-8">
+          {workExperience.map((card, index) => (
+            <motion.div
+              key={card.id}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="relative pl-12 lg:pl-20"
+            >
+              {/* Timeline dot */}
+              <div
+                className={`absolute left-2.5 lg:left-6 top-8 w-3 h-3 rounded-full border-2 z-10 ${
+                  index === 0
+                    ? "bg-cyan-400 border-cyan-400 shadow-glow-cyan"
+                    : "bg-black-100 border-white/30"
+                }`}
               />
-              <div className="lg:ms-5">
-                <h1
-                  className="text-start text-xl md:text-2xl font-bold"
-                  style={{ whiteSpace: "pre-wrap" }}
-                >
-                  {card.title}
-                </h1>
-                <ul className="text-start text-white-100 font-semibold list-disc pl-5 mt-2">
-                  {card.desc.map((point, index) => (
-                    <li key={index} className="mt-4">
+
+              {/* Card */}
+              <div className="glass-card p-6 lg:p-8 hover:border-white/20 transition-all duration-300 group">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                  <h3
+                    className="text-lg lg:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300"
+                    style={{ whiteSpace: "pre-wrap" }}
+                  >
+                    {card.title}
+                  </h3>
+                  {index === 0 && (
+                    <span className="pulse-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-medium w-fit">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                      CURRENT
+                    </span>
+                  )}
+                </div>
+
+                {/* Bullets */}
+                <ul className="space-y-3">
+                  {card.desc.map((point, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: index * 0.1 + i * 0.05,
+                      }}
+                      viewport={{ once: true }}
+                      className="flex items-start gap-3 text-white-100 text-sm lg:text-base leading-relaxed"
+                    >
+                      <span className="mt-2 w-1 h-1 rounded-full bg-cyan-400/60 flex-shrink-0" />
                       {point}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
+
+                {/* Featured Project Cards */}
+                {card.featuredProjects && card.featuredProjects.length > 0 && (
+                  <div className="mt-6 pt-6 border-t border-white/5">
+                    <p className="text-xs text-white/40 uppercase tracking-widest mb-4 font-medium">
+                      Featured Projects
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      {card.featuredProjects.map(
+                        (project: FeaturedProject, i: number) => (
+                          <ProjectCard key={i} project={project} index={i} />
+                        )
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          </Button>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

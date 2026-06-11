@@ -1,19 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import Lottie from "react-lottie";
 import { cn } from "@/app/lib/utils";
-import { BackgroundGradientAnimation } from "../ui/BackgroundGradientAnimation";
-import GridGlobe from "../ui/GridGlobe";
 import { IoCopyOutline } from "react-icons/io5";
 import MagicButton from "./MagicButton";
+import { motion } from "framer-motion";
 import {
-  programmingLanguagesAndFrameworks,
-  databaseManagement,
-  devOpsAndTools,
+  aiAndMlSkills,
+  languagesAndFrameworks,
+  infrastructureAndTools,
   emailAddress,
+  aboutMe,
 } from "../../data/index";
-// import animationData from "@/data/confetti.json";
 
 export const BentoGrid = ({
   className,
@@ -25,7 +23,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
+        "grid grid-cols-1 gap-4 lg:gap-8 mx-auto",
         className
       )}
     >
@@ -34,15 +32,51 @@ export const BentoGrid = ({
   );
 };
 
+const SkillCategory = ({
+  title,
+  skills,
+  pillClass,
+  accentColor,
+  delay,
+}: {
+  title: string;
+  skills: string[];
+  pillClass: string;
+  accentColor: string;
+  delay: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay }}
+    viewport={{ once: true }}
+    className="flex-1"
+  >
+    <h4 className={`text-lg lg:text-xl mb-4 font-semibold ${accentColor}`}>
+      {title}
+    </h4>
+    <div className="flex flex-row gap-2 flex-wrap">
+      {skills.map((item, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: delay + i * 0.03 }}
+          viewport={{ once: true }}
+          className={`${pillClass} py-2 px-3 text-xs lg:text-sm rounded-lg text-white/90 transition-all duration-300 cursor-default`}
+        >
+          {item}
+        </motion.span>
+      ))}
+    </div>
+  </motion.div>
+);
+
 export const BentoGridItem = ({
   className,
   id,
   title,
   description,
-  img,
-  imgClassName,
-  titleClassName,
-  spareImg,
 }: {
   className?: string;
   id: number;
@@ -64,7 +98,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
+        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.08] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none flex flex-col",
         className
       )}
       style={{
@@ -73,129 +107,74 @@ export const BentoGridItem = ({
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={`${id === 6 && "flex justify-center"} h-full`}>
-        <div className="w-full h-full absolute">
-          {img && (
-            <img
-              src={img}
-              alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
-            />
-          )}
-        </div>
-        <div
-          className={`absolute right-0 -bottom-5  ${
-            id === 5 && "w-full opacity-80"
-          } `}
+      <div className="h-full p-6 lg:p-10">
+        {/* Section title */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+          className="mb-2"
         >
-          {spareImg && (
-            <img
-              src={spareImg}
-              alt={spareImg}
-              className="object-cover object-center w-full h-full"
-            />
-          )}
-        </div>
-        {id === 6 && (
-          <BackgroundGradientAnimation>
-            <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
-          </BackgroundGradientAnimation>
-        )}
-
-        <div
-          className={cn(
-            titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
-          )}
-        >
-          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+          <div className="font-sans font-extralight text-sm text-[#C1C2D3] z-10">
             {description}
           </div>
-          <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
-          >
+          <div className="font-sans text-lg lg:text-3xl font-bold z-10">
             {title}
           </div>
+        </motion.div>
 
-          {id === 2 && <GridGlobe />}
+        {/* About me */}
+        {id === 0 && (
+          <div className="mt-6">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-white-200 text-sm lg:text-base leading-relaxed mb-8"
+            >
+              {aboutMe}
+            </motion.p>
 
-          <div className="relative flex flex-col items-center">
-            {id === 0 && (
-              <div className="flex flex-col gap-4 w-fit">
-                {/* Programming Languages & Frameworks */}
-                <div className="mb-4 mt-8">
-                  {/* Adjust the margin for section */}
-                  <h4 className="text-purple text-lg lg:text-xl mb-2 text-center">
-                    {/* Center the title */}
-                    Programming Languages & Frameworks
-                  </h4>
-                  <div className="flex flex-row gap-3 md:gap-3 lg:gap-8 flex-wrap justify-center text-white">
-                    {/* Added justify-center to center skills */}
-                    {programmingLanguagesAndFrameworks.map((item, i) => (
-                      <span
-                        key={i}
-                        className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Database Management */}
-                <div className="mb-4">
-                  {/* Adjust the margin for section */}
-                  <h4 className="text-purple text-lg lg:text-xl mb-2 text-center">
-                    {/* Center the title */}
-                    Database Management
-                  </h4>
-                  <div className="flex flex-row gap-3 md:gap-3 lg:gap-8 flex-wrap justify-center text-white">
-                    {/* Added justify-center to center skills */}
-                    {databaseManagement.map((item, i) => (
-                      <span
-                        key={i}
-                        className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* DevOps & Tools */}
-                <div>
-                  <h4 className="text-purple text-lg lg:text-xl mb-2 text-center">
-                    {/* Center the title */}
-                    DevOps & Tools
-                  </h4>
-                  <div className="flex flex-row gap-3 md:gap-3 lg:gap-8 flex-wrap justify-center text-white">
-                    {/* Added justify-center to center skills */}
-                    {devOpsAndTools.map((item, i) => (
-                      <span
-                        key={i}
-                        className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {id === 6 && (
-              <div className="mt-5 relative">
-                <MagicButton
-                  title={copied ? "Email is Copied!" : "Copy my email address"}
-                  icon={<IoCopyOutline />}
-                  position="left"
-                  handleClick={handleCopy}
-                  otherClasses="!bg-[#161A31]"
-                />
-              </div>
-            )}
+            {/* Skills Grid */}
+            <div className="flex flex-col lg:flex-row gap-8 mt-4">
+              <SkillCategory
+                title="AI & Machine Learning"
+                skills={aiAndMlSkills}
+                pillClass="pill-cyan"
+                accentColor="text-cyan-400"
+                delay={0}
+              />
+              <SkillCategory
+                title="Languages & Frameworks"
+                skills={languagesAndFrameworks}
+                pillClass="pill-purple"
+                accentColor="text-violet-400"
+                delay={0.1}
+              />
+              <SkillCategory
+                title="Infrastructure & Tools"
+                skills={infrastructureAndTools}
+                pillClass="pill-blue"
+                accentColor="text-blue-100"
+                delay={0.2}
+              />
+            </div>
           </div>
-        </div>
+        )}
+
+        {id === 6 && (
+          <div className="mt-5 relative">
+            <MagicButton
+              title={copied ? "Email is Copied!" : "Copy my email address"}
+              icon={<IoCopyOutline />}
+              position="left"
+              handleClick={handleCopy}
+              otherClasses="!bg-[#161A31]"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
